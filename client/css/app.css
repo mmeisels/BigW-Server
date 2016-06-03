@@ -229,7 +229,7 @@ a {
 
 .profile .block h3 {
     font-family: "Source Sans Light" !important;
-    color: #2E9AFE !important;
+    color: #3300CC !important;
     margin: 8px;
     font-size: 20px;
 }
@@ -251,22 +251,22 @@ a {
 }
 
 .bar-status {
-    border-color: #2E9AFE;
-    background-color: #2E9AFE !important;
+    border-color: #3300CC;
+    background-color: #3300CC !important;
     background-image: none;
     color: #fff;
 }
 
 .bar-status1 {
-    border-color: #2E9AFE;
-    background-color: #2E9AFE !important;
+    border-color: #162955;
+    background-color: #162955 !important;
     background-image: none;
     color: #fff;
 }
 
 .bar-status2 {
-    border-color: #2E9AFE;
-    background-color: #2E9AFE !important;
+    border-color: #4F628E;
+    background-color: #4F628E !important;
     background-image: none;
     color: #fff;
 }
@@ -281,8 +281,8 @@ a {
 
 .button-status,
 {
-    border-color: #2E9AFE;
-    background-color: #2E9AFE;
+    border-color: #3300CC;
+    background-color: #3300CC;
     background-image: none;
     color: #fff;
 }
@@ -290,15 +290,15 @@ a {
 .button-status1,
 .button-status1:hover,
 .button-status1:active {
-    background-color: #2E9AFE;
+    background-color: #162955;
     color: #fff;
 }
 
 .button-status2,
 .button-status2:hover,
 .button-status2:active {
-    border-color: #741D7A;
-    background-color: #741D7A;
+    border-color: #4F628E;
+    background-color: #4F628E;
     background-image: none;
     color: #fff;
 }
@@ -348,15 +348,15 @@ a {
 }
 
 .status-bar>div {
-    border-top: solid 2px #2E9AFE;
+    border-top: solid 2px #3300CC;
     -webkit-flex-grow:1;
     flex-grow: 1;
     margin: 4px;
 }
 
 .status-bar>div:nth-of-type(1) {
-    border-top: solid 50px #2E9AFE;
-    color: #2E9AFE !important;
+    border-top: solid 50px #3300CC;
+    color: #3300CC !important;
 }
 
 .status-bar>div:nth-of-type(2) {
@@ -387,7 +387,7 @@ a {
 }
 
 .status1-bg {
-    background: #2E9AFE;
+    background: #3300CC;
 }
 
 .status2-bg {
@@ -399,7 +399,7 @@ a {
 }
 
 .status1 {
-    color: #2E9AFE;
+    color: #3300CC;
 }
 
 .status2 {
@@ -432,7 +432,7 @@ a {
 }
 
 .badge {
-    background-color: #2E9AFE;
+    background-color: #3300CC;
 }
 
 .activity-pic {
