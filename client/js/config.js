@@ -1,9 +1,9 @@
 angular.module('nibs_ibeacon.config', [])
 
 
-    .constant('SERVER_URL', 'https://bwsbeacons.herokuapp.com')
+    .constant('SERVER_URL', 'https://bwsloyalty.herokuapp.com')
 
-    .constant('FB_APP_ID','1517597908541286')
+    .constant('FB_APP_ID','1724400877834320')
     .constant('STATUS_LABELS', [
         'Barley',
         'Black malt',
