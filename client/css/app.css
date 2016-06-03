@@ -229,7 +229,7 @@ a {
 
 .profile .block h3 {
     font-family: "Source Sans Light" !important;
-    color: #805959 !important;
+    color: #2E9AFE !important;
     margin: 8px;
     font-size: 20px;
 }
@@ -251,22 +251,22 @@ a {
 }
 
 .bar-status {
-    border-color: #805959;
-    background-color: #805959 !important;
+    border-color: #2E9AFE;
+    background-color: #2E9AFE !important;
     background-image: none;
     color: #fff;
 }
 
 .bar-status1 {
-    border-color: #805959;
-    background-color: #805959 !important;
+    border-color: #2E9AFE;
+    background-color: #2E9AFE !important;
     background-image: none;
     color: #fff;
 }
 
 .bar-status2 {
-    border-color: #805959;
-    background-color: #805959 !important;
+    border-color: #2E9AFE;
+    background-color: #2E9AFE !important;
     background-image: none;
     color: #fff;
 }
@@ -281,8 +281,8 @@ a {
 
 .button-status,
 {
-    border-color: #805959;
-    background-color: #805959;
+    border-color: #2E9AFE;
+    background-color: #2E9AFE;
     background-image: none;
     color: #fff;
 }
@@ -290,7 +290,7 @@ a {
 .button-status1,
 .button-status1:hover,
 .button-status1:active {
-    background-color: #805959;
+    background-color: #2E9AFE;
     color: #fff;
 }
 
@@ -348,15 +348,15 @@ a {
 }
 
 .status-bar>div {
-    border-top: solid 2px #805959;
+    border-top: solid 2px #2E9AFE;
     -webkit-flex-grow:1;
     flex-grow: 1;
     margin: 4px;
 }
 
 .status-bar>div:nth-of-type(1) {
-    border-top: solid 50px #805959;
-    color: #805959 !important;
+    border-top: solid 50px #2E9AFE;
+    color: #2E9AFE !important;
 }
 
 .status-bar>div:nth-of-type(2) {
@@ -387,7 +387,7 @@ a {
 }
 
 .status1-bg {
-    background: #805959;
+    background: #2E9AFE;
 }
 
 .status2-bg {
@@ -399,7 +399,7 @@ a {
 }
 
 .status1 {
-    color: #805959;
+    color: #2E9AFE;
 }
 
 .status2 {
@@ -432,7 +432,7 @@ a {
 }
 
 .badge {
-    background-color: #805959;
+    background-color: #2E9AFE;
 }
 
 .activity-pic {
