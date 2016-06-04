@@ -1,11 +1,11 @@
-angular.module('nibs_ibeacon.product-cat', ['openfb','nibs_ibeacon.product', 'nibs_ibeacon.status', 'nibs_ibeacon.activity', 'nibs_ibeacon.wishlist'])
+angular.module('nibs_ibeacon.productcat', ['openfb','nibs_ibeacon.product', 'nibs_ibeacon.status', 'nibs_ibeacon.activity', 'nibs_ibeacon.wishlist'])
 
     .config(function ($stateProvider) {
 
         $stateProvider
 
-            .state('app.products-cat', {
-                url: "/products-cat",
+            .state('app.productscat', {
+                url: "/productscat",
                 views: {
                     'menuContent' :{
                         templateUrl: "templates/product-list.html",
@@ -30,10 +30,10 @@ angular.module('nibs_ibeacon.product-cat', ['openfb','nibs_ibeacon.product', 'ni
     .factory('Product', function ($http, $rootScope) {
         return {
             all: function() {
-                return $http.get($rootScope.server.url + '/products-cat');
+                return $http.get($rootScope.server.url + '/productscat');
             },
             get: function(productId) {
-                return $http.get($rootScope.server.url + '/products-cat/' + productId);
+                return $http.get($rootScope.server.url + '/productscat/' + productId);
             }
         };
     })
