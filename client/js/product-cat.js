@@ -14,11 +14,11 @@ angular.module('nibs_ibeacon.product-cat', ['openfb', 'nibs_ibeacon.status', 'ni
                 }
             })
 
-            .state('app.product-detail', {
-                url: "/productscat/:productId",
+            .state('app.product-list', {
+                url: "/products/:productId",
                 views: {
                     'menuContent' :{
-                        templateUrl: "templates/product-detail.html",
+                        templateUrl: "templates/product-list.html",
                         controller: "ProductDetailCtrl"
                     }
                 }
