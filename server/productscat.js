@@ -9,7 +9,7 @@ function findAll(limit) {
 function findById(id) {
     return db.query('SELECT id, name, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE id=$1', [id], true);
 };
-
+ 
 function getAll(req, res, next) {
     findAll(20)
         .then(function (products) {
