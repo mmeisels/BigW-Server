@@ -1,4 +1,4 @@
-angular.module('nibs_ibeacon.product-cat', ['openfb', 'nibs_ibeacon.status', 'nibs_ibeacon.activity', 'nibs_ibeacon.wishlist'])
+angular.module('nibs_ibeacon.product-cat', ['openfb','nibs_ibeacon.product', 'nibs_ibeacon.status', 'nibs_ibeacon.activity', 'nibs_ibeacon.wishlist'])
 
     .config(function ($stateProvider) {
 
@@ -9,7 +9,7 @@ angular.module('nibs_ibeacon.product-cat', ['openfb', 'nibs_ibeacon.status', 'ni
                 views: {
                     'menuContent' :{
                         templateUrl: "templates/product-list.html",
-                        controller: "ProductListCtrl"
+                        controller: "ProductCatCtrl"
                     }
                 }
             })
@@ -19,7 +19,7 @@ angular.module('nibs_ibeacon.product-cat', ['openfb', 'nibs_ibeacon.status', 'ni
                 views: {
                     'menuContent' :{
                         templateUrl: "templates/product-list.html",
-                        controller: "ProductDetailCtrl"
+                        controller: "ProductListCtrl"
                     }
                 }
             })
@@ -38,7 +38,7 @@ angular.module('nibs_ibeacon.product-cat', ['openfb', 'nibs_ibeacon.status', 'ni
         };
     })
 
-    .controller('ProductListCtrl', function ($scope, Product, OpenFB) {
+    .controller('ProductCatCtrl', function ($scope, Product, OpenFB) {
 
         Product.all().success(function(products) {
             $scope.products = products;
@@ -53,7 +53,7 @@ angular.module('nibs_ibeacon.product-cat', ['openfb', 'nibs_ibeacon.status', 'ni
 
     })
 
-    .controller('ProductDetailCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
+    .controller('ProductListCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
 
         Product.get($stateParams.productId).success(function(product) {
             $scope.product = product;
