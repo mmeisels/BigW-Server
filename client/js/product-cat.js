@@ -14,7 +14,7 @@ angular.module('nibs_ibeacon.product-cat', ['openfb', 'nibs_ibeacon.status', 'ni
                 }
             })
 
-            .state('app.product-list', {
+            .state('app.product', {
                 url: "/products/:productId",
                 views: {
                     'menuContent' :{
@@ -30,10 +30,10 @@ angular.module('nibs_ibeacon.product-cat', ['openfb', 'nibs_ibeacon.status', 'ni
     .factory('Product', function ($http, $rootScope) {
         return {
             all: function() {
-                return $http.get($rootScope.server.url + '/products');
+                return $http.get($rootScope.server.url + '/products-cat');
             },
             get: function(productId) {
-                return $http.get($rootScope.server.url + '/products/' + productId);
+                return $http.get($rootScope.server.url + '/products-cat/' + productId);
             }
         };
     })
