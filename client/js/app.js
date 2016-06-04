@@ -1,4 +1,4 @@
-var app = angular.module('nibs_ibeacon', ['ionic', 'openfb', 'nibs_ibeacon.config', 'nibs_ibeacon.profile', 'nibs_ibeacon.auth', 'nibs_ibeacon.product', 'nibs_ibeacon.offer', 'nibs_ibeacon.store-locator', 'nibs_ibeacon.settings', 'nibs_ibeacon.case'])
+var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.gallery', 'nibs_ibeacon.config', 'nibs_ibeacon.profile', 'nibs_ibeacon.auth', 'nibs_ibeacon.product', 'nibs_ibeacon.offer', 'nibs_ibeacon.store-locator', 'nibs_ibeacon.settings', 'nibs_ibeacon.case'])
 
     .run(function ($window, $location, $rootScope, $state, $ionicPlatform, $http, OpenFB, FB_APP_ID, SERVER_URL) {
          console.log('hi');
@@ -31,40 +31,40 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb', 'nibs_ibeacon.confi
                              document.body.appendChild(e);
                              document.body.appendChild(br);
                              document.body.appendChild(br2);
-                             
+
                              window.scrollTo(0, window.document.height);
                              };
-                             
-                             
+
+
                              /***********************************************
                               *   NOTIFICATIONS
                               **********************************************/
                              console.log('3:');
                              window.plugin.notification.local.cancelAll(function () {}, $rootScope);
-                             
+
                              window.plugin.notification.local.onclick = function (id, state, json) {
                                 var major = JSON.parse(json).type;
                                 if (major === 4522) {
                                     window.location.href = '#/app/profile';
-                             
+
                                 } else if (major === 1629) {
                                     window.location.href = '#/app/offers';
                                 }
                              }
-                             
+
                              /***********************************************
                               *   DELEGATES
                               **********************************************/
                              console.log('4:');
                              var delegate = new cordova.plugins.locationManager.Delegate();
-                             
+
                              delegate.didDetermineStateForRegion = function (pluginResult) {
-                             
+
                                 console.log('didDetermineStateForRegion:', JSON.stringify(pluginResult));
                                 console.log('connected user 2 : ' + $rootScope.user);
-                             
+
                                 if(pluginResult.state === "CLRegionStateInside"){
-                             
+
                                     if (pluginResult.region.major === 4522) {
                                         console.log('4522');
                                         window.plugin.notification.local.add({ message: 'Welcome to your store !',
@@ -90,39 +90,39 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb', 'nibs_ibeacon.confi
                                      //                                    id             : 1});
                                 }
                              };
-                             
+
                              cordova.plugins.locationManager.setDelegate(delegate);
-                             
+
                              /***********************************************
                               *   BEACON CONFIGURATION
                               **********************************************/
-                             
+
                              /* Beacon 1 - Bienvenue dans la chambre */
                              var uuid = '8492E75F-4FD6-469D-B132-043FE94921D8';
                              var identifier = 'iPad Beacon';
                              var minor = 0;
                              var major = 4522;
                              var beaconRegion1 = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor, true);
-                             
+
                              cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion1)
                              .fail(console.error)
                              .done();
-                             
+
                              /* Beacon 2 - Bienvenue dans l'hôtel */
                              uuid = '8492E75F-4FD6-469D-B132-043FE94921D8';
                              identifier = 'SmartBeacon_02316';
                              minor = 0;
                              major = 4522;
                              var beaconRegion2 = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor, true);
-                             
+
                              cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion2)
                              .fail(console.error)
                              .done();
-                             
+
                              /***********************************************
                               *   PLUGIN CONFIGURATION
                               **********************************************/
-                             
+
                              cordova.plugins.locationManager.requestAlwaysAuthorization();
                              cordova.plugins.locationManager.disableDebugLogs();
 
@@ -220,4 +220,3 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb', 'nibs_ibeacon.confi
         console.log('result', result);
         window.location.href = result;
     }
-
