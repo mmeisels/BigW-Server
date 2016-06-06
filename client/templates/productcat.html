@@ -12,7 +12,7 @@
         </ion-refresher>
 
         <div ng-repeat="product in products" class="list card">
-            <a ui-sref="app.products({productId: product.id})">
+            <a ui-sref="app.products({familyName: product.family})">
                 <div class="item">
                     <h2><center>{{product.name}}</center></h2>
                 </div>
