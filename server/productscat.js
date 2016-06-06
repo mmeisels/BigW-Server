@@ -7,7 +7,7 @@ function findAll(limit) {
 };
 
 function findById(family) {
-    return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE family=$1', [family], true);
+    return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE family=$1', [name], true);
 };
 
 function getAll(req, res, next) {
@@ -18,11 +18,11 @@ function getAll(req, res, next) {
         .catch(next);
 };
 
-function getById(req, res, next) {
-    var family = req.params.family;
-    findById(family)
-        .then(function (product) {
-            return res.send(JSON.stringify(product));
+function getByFamily(req, res, next) {
+    var name = req.params.name;
+    findById(name)
+        .then(function (name) {
+            return res.send(JSON.stringify(name));
         })
         .catch(next);
 };
