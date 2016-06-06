@@ -52,12 +52,15 @@ app.put('/users/me', auth.validateToken, users.updateProfile);
 
 app.get('/offers', auth.validateToken, offers.getAll);
 app.get('/offers/:id', offers.getById);
+
 app.get('/productscat', auth.validateToken, productscat.getAll);
 app.get('/productscat/:id', auth.validateToken, productscat.getById);
+app.get('/productscat/:name', auth.validateToken, productscat.getByFamily);
 
 app.get('/products', auth.validateToken, products.getAll);
 app.get('/products/:id', auth.validateToken, products.getById);
 app.get('/products/:name', auth.validateToken, products.getByFamily);
+
 app.get('/stores', stores.findAll);
 
 app.get('/wallet', auth.validateToken, wallet.getItems);
