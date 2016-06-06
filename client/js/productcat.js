@@ -34,7 +34,7 @@ angular.module('nibs_ibeacon.productcat', ['openfb','nibs_ibeacon.product', 'nib
             },
             get: function(productId) {
               console.log("this is product: ",productId);
-                return $http.get($rootScope.server.url + '/productscat/' + productId);
+                return $http.get($rootScope.server.url + '/productscat/52');
             }
         };
     })
