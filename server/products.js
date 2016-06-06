@@ -31,6 +31,15 @@ function getById(req, res, next) {
         .catch(next);
 };
 
+function getByFamily(req, res, next) {
+    var name = req.params.name;
+    findByFamily(name)
+        .then(function (name) {
+            return res.send(JSON.stringify(name));
+        })
+        .catch(next);
+};
+
 exports.findAll = findAll;
 exports.findById = findById;
 exports.getAll = getAll;
