@@ -33,8 +33,8 @@ function getById(req, res, next) {
 function getByFamily(req, res, next) {
     var name = req.params.name;
     findByFamily(name)
-        .then(function (name) {
-            return res.send(JSON.stringify(name));
+        .then(function (product) {
+            return res.send(JSON.stringify(product));
         })
         .catch(next);
 };
