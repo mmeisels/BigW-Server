@@ -15,7 +15,7 @@ angular.module('nibs_ibeacon.productcat', ['openfb','nibs_ibeacon.product', 'nib
             })
 
             .state('app.product', {
-                url: "/productscat/:name",
+                url: "/productscat/:productId",
                 views: {
                     'menuContent' :{
                         templateUrl: "templates/productcat.html",
@@ -32,8 +32,8 @@ angular.module('nibs_ibeacon.productcat', ['openfb','nibs_ibeacon.product', 'nib
             all: function() {
                 return $http.get($rootScope.server.url + '/productscat');
             },
-            get: function(name) {
-                return $http.get($rootScope.server.url + '/productscat/' + name);
+            get: function(productId) {
+                return $http.get($rootScope.server.url + '/productscat/' + productId);
             }
         };
     })
