@@ -14,6 +14,7 @@
         <div ng-repeat="product in products" class="list card">
             <a ui-sref="app.products({productId: product.id})">
                 <div class="item">
+                  <h2><center>{{product.id}}</center></h2>
                     <h2><center>{{product.name}}</center></h2>
                 </div>
                 <div class="item item-body">
