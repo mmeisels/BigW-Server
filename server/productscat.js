@@ -6,7 +6,7 @@ function findAll(limit) {
     return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE family=name ORDER BY name ');
 };
 
-function findById(family) {
+function findByFamily(family) {
     return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE family=$1', [name], true);
 };
 
@@ -20,7 +20,7 @@ function getAll(req, res, next) {
 
 function getByFamily(req, res, next) {
     var name = req.params.name;
-    findById(name)
+    findByFamily(name)
         .then(function (name) {
             return res.send(JSON.stringify(name));
         })
@@ -28,6 +28,6 @@ function getByFamily(req, res, next) {
 };
 
 exports.findAll = findAll;
-exports.findById = findById;
+exports.findByFamily = findByFamily;
 exports.getAll = getAll;
-exports.getById = getById;
+exports.getByFamily = getByFamily;
