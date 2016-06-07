@@ -7,7 +7,7 @@ function findAll(limit) {
 };
 
 function findById(productId) {
-    return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE id=$1', [productId], true);
+    return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE id=?', [productId], true);
 };
 
 function findByFamily(productId) {
