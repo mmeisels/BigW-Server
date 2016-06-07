@@ -11,16 +11,16 @@
                 on-refresh="doRefresh()">
         </ion-refresher>
   <h2>{{products}}</h2>
-        <div ng-repeat="product in products" class="list card">
-            <a ui-sref="app.product-detail({productId: product.id})">
+        <div ng-repeat="productlist in products" class="list card">
+            <a ui-sref="app.product-detail({productId: productlist.id})">
                 <div class="item">
-                    <h2>{{product.name}}</h2>
+                    <h2>{{productlist.name}}</h2>
                     <p>Available today!</p>
                 </div>
                 <div class="item item-body">
-                    <img ng-if="product.image"  ng-src="{{product.image}}">
+                    <img ng-if="productlist.image"  ng-src="{{productlist.image}}">
                     <p>
-                    <p>{{product.description}}</p>
+                    <p>{{productlist.description}}</p>
                 </div>
             </a>
         </div>
