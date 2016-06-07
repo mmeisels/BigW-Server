@@ -45,11 +45,13 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
         Product.all($stateParams.productId).success(function(products) {
           console.log("here");
             $scope.products = products;
+            console.log($scope.products.length);
+            console.log($scope.products.name);
 
         });
 
         $scope.doRefresh = function() {
-            Product.all().success(function(products) {
+            Product.all($stateParams.productId).success(function(products) {
                 $scope.products = products;
                 $scope.$broadcast('scroll.refreshComplete');
             });
