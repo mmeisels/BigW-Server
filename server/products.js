@@ -10,7 +10,7 @@ function findById(id) {
     return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE id=$1', [id], true);
 };
 
-function findByFamily(name) {
+function findByFamily(productId) {
     return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE family=$1', [productId], true);
 };
 

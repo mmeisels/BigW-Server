@@ -13,7 +13,7 @@
 
         <div ng-repeat="productcat in productscat" class="list card">
             <!--<a ng-click="getItem(product)">-->
-              <a ui-sref="app.productscatlist({productId: productcat.id})">
+              <a ui-sref="app.productscatlist({productId: productcat.name})">
                 <div class="item">
                   <h2><center>{{productcat.id}}</center></h2>
                     <h2><center>{{productcat.name}}</center></h2>

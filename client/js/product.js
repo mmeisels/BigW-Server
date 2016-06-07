@@ -5,7 +5,7 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
         $stateProvider
 
             .state('app.products', {
-                url: "/products",
+                url: "/products/:productId",
                 views: {
                     'menuContent' :{
                         templateUrl: "templates/product-list.html",
@@ -29,8 +29,8 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
     // REST resource for access to Products data
     .factory('Product', function ($http, $rootScope) {
         return {
-            all: function() {
-                return $http.get($rootScope.server.url + '/products');
+            all: function(productId) {
+                return $http.get($rootScope.server.url + '/products/' + productId);
             },
             get: function(productId) {
                 return $http.get($rootScope.server.url + '/products/' + productId);
