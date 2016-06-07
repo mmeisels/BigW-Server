@@ -1,4 +1,4 @@
-angular.module('nibs_ibeacon.productcat', ['openfb','nibs_ibeacon.product', 'nibs_ibeacon.status', 'nibs_ibeacon.activity', 'nibs_ibeacon.wishlist'])
+angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nibs_ibeacon.activity', 'nibs_ibeacon.wishlist'])
 
     .config(function ($stateProvider) {
 
@@ -55,10 +55,26 @@ angular.module('nibs_ibeacon.productcat', ['openfb','nibs_ibeacon.product', 'nib
     })
 
     .controller('ProductListCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
-
-        Product.get($stateParams.productId).success(function(product) {
-            $scope.product = product;
+        Product.get(product.id).success(function() {
+              $scope.product = product;
         });
+
+        /**
+        Original One
+
+            Product.get($stateParams.productId).success(function(product) {
+            $scope.product = product;
+        });**/
+
+        /**
+          One to try out
+        $scope.getItem = function(product) {
+          Status.show('Getting Items');
+          Product.get(product.id).success(function() {
+                $scope.product = product;
+          });
+        };
+        **/
 
         $scope.shareOnFacebook = function () {
             Status.show('Shared on Facebook!');

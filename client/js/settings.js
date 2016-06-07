@@ -22,7 +22,7 @@ angular.module('nibs_ibeacon.settings', ['openfb', 'nibs_ibeacon.activity'])
         $scope.deleteActivities = function () {
             Activity.deleteAll().success(function () {
                 $rootScope.user.status = 1;
-                $ionicPopup.alert({title: 'Nibs', content: 'Activities deleted'});
+                $ionicPopup.alert({title: 'Big W', content: 'Activities deleted'});
             });
         };
 
