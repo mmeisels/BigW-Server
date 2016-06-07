@@ -24,7 +24,13 @@ org.authenticate({ username: userName, password: password}, function(err, resp) 
 });
 
 function createCase(req, res, next) {
-
+  org.authenticate({ username: userName, password: password}, function(err, resp) {
+    if (!err) {
+          console.log('nforce connection succeeded');
+      } else {
+          console.log('nforce connection failed: ' + err.message);
+      }
+  });
     db.query('SELECT sfid FROM salesforce.contact WHERE id=$1',[req.userId], true)
         .then(function (user) {
             console.log("sfid: " + user.sfid);
@@ -59,6 +65,8 @@ function createCase(req, res, next) {
                         }
                     })
                 } else {
+                  console.log('*** Successfully connected to Salesforce ***');
+
                     console.log('First case insert worked');
                     res.send('ok');
                 }
