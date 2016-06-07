@@ -44,9 +44,9 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
 
         Product.all($stateParams.productId).success(function(products) {
           console.log("here");
-          console.log(products.length);
+          console.log(products.name);
             $scope.products = products;
-            
+
         });
 
         $scope.doRefresh = function() {
