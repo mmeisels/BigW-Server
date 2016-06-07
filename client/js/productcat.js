@@ -63,25 +63,4 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
         $scope.product = product;
       });
 
-        /**
-        Original One
-
-            Product.get($stateParams.productId).success(function(product) {
-            $scope.product = product;
-        });
-
-        **/
-
-        /**
-          One to try out
-        $scope.getItem = function(product) {
-          Status.show('Getting Items');
-          Product.get(product.id).success(function() {
-                $scope.product = product;
-          });
-        };
-        **/
-
-
-
     });

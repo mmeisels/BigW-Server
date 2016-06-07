@@ -30,11 +30,11 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
     .factory('Product', function ($http, $rootScope) {
         return {
             all: function(productId) {
-                console.log("this is all product: ",productId);
+                console.log("this is all product js: ",productId);
                 return $http.get($rootScope.server.url + '/products/' + productId);
             },
             get: function(productId) {
-                console.log("this is get product : ",productId);
+                console.log("this is get product js : ",productId);
                 return $http.get($rootScope.server.url + '/products/' + productId);
             }
         };
@@ -45,9 +45,7 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
         Product.all($stateParams.productId).success(function(products) {
           console.log("here");
             $scope.products = products;
-            console.log($scope.products.length);
             console.log($scope.products.name);
-
         });
 
         $scope.doRefresh = function() {
