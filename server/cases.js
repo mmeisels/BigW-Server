@@ -24,16 +24,14 @@ org.authenticate({ username: userName, password: password}, function(err, resp) 
 });
 
 function createCase(req, res, next) {
-console.log("In Case");
-            
+
     db.query('SELECT sfid FROM salesforce.contact WHERE id=$1',[req.userId], true)
         .then(function (user) {
             console.log("sfid: " + user.sfid);
-            //console.log("case: " + req.body.description);
             // case is a reserved word. using _case instead.
             var _case = nforce.createSObject('Case');
             _case.set('contactId', user.sfid);
-            _case.set('subject', 'Request from the BWS App');
+            _case.set('subject', req.body.subject);
             _case.set('description', req.body.description);
             _case.set('origin', 'Web');
             _case.set('status', 'New');

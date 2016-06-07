@@ -9,7 +9,8 @@ angular.module('nibs_ibeacon.case', [])
                 url: "/help",
                 views: {
                     'menuContent' :{
-                        templateUrl: "templates/case.html"
+                        templateUrl: "templates/case.html",
+                         controller: "CaseCtrl"
                     }
                 }
             })
@@ -20,7 +21,7 @@ angular.module('nibs_ibeacon.case', [])
     .factory('Case', function ($http, $rootScope) {
         return {
             create: function(theCase) {
-                return $http.post($rootScope.server.url + '/cases/', theCase);
+                  return $http.post($rootScope.server.url + '/cases/', theCase);
             }
         };
     })
@@ -31,6 +32,7 @@ angular.module('nibs_ibeacon.case', [])
         $scope.case = {};
 
         $scope.submit = function () {
+            console.log("Case4: " + $scope.case.description);
             Case.create($scope.case).success(function() {
                 $ionicPopup.alert({title: 'Thank You', content: 'A customer representative will contact you shortly.'});
             });
