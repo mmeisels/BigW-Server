@@ -43,6 +43,7 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
     .controller('ProductListCtrl', function ($scope,$stateParams, Product, OpenFB) {
 
         Product.all($stateParams.productId).success(function(products) {
+          console.log("here");
             $scope.products = products;
         });
 
