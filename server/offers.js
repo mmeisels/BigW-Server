@@ -1,8 +1,8 @@
 var db = require('./pghelper'),
     winston = require('winston');
 
-function findAll(limit) {
-    return db.query("SELECT id, sfId, name, startDate, endDate, description, image__c AS image, campaignPage__c AS campaignPage, publishDate__c AS publishDate FROM salesforce.campaign WHERE type='Offer' AND (Target_Preferences__c=(SELECT size__c FROM salesforce.contact WHERE id=(select max(id) from salesforce.contact)) OR Target_Preferences__c=(SELECT preference__c FROM salesforce.contact WHERE id=(select max(id) from salesforce.contact))) AND status='In Progress' ORDER BY publishDate DESC LIMIT $1", [limit]);
+function findAll(limit, userid) {
+    return db.query("SELECT id, sfId, name, startDate, endDate, description, image__c AS image, campaignPage__c AS campaignPage, publishDate__c AS publishDate FROM salesforce.campaign WHERE type='Offer' AND (Target_Preferences__c=(SELECT size__c FROM salesforce.contact WHERE id=$2) OR Target_Preferences__c=(SELECT preference__c FROM salesforce.contact WHERE id=$2)) AND status='In Progress' ORDER BY publishDate DESC LIMIT $1", [limit,userid]);
 };
 
 function findById(id) {
@@ -12,7 +12,7 @@ function findById(id) {
 
 function getAll(req, res, next) {
   console.log ('Orders = ' + req.userId);
-  findAll(20)
+  findAll(20,req.userId)
         .then(function (offers) {
             console.log(JSON.stringify(offers));
             return res.send(JSON.stringify(offers));
