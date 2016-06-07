@@ -16,7 +16,9 @@ var db = require('./pghelper'),
 
 
 org.authenticate({ username: userName, password: password}, function(err, resp) {
-    if(!err) {
+  console.log("userName: " + userName);
+  console.log("password: " + password);
+  if(!err) {
         console.log('nforce connection succeeded');
     } else {
         console.log('nforce connection failed: ' + err.message);
