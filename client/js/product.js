@@ -35,7 +35,7 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
             },
             get: function(itemId) {
                 console.log("this is get product js : ",itemId);
-                return $http.get($rootScope.server.url + '/products/' + itemId);
+                return $http.get($rootScope.server.url + '/productsdetail/' + itemId);
             }
         };
     })
