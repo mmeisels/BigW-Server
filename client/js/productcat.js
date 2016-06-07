@@ -42,6 +42,7 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
     .controller('ProductCatCtrl', function ($scope, Productcat, OpenFB) {
 
         Productcat.all().success(function(productscat) {
+          Status.show('Getting Items 2');
             $scope.productscat = productscat;
         });
 
@@ -56,6 +57,7 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
 
     .controller('ProductListCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
         Productcat.get(product.id).success(function() {
+          Status.show('Getting Items 1');
               $scope.productcat = productcat;
         });
 
