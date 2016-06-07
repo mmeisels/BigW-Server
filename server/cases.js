@@ -30,7 +30,7 @@ function createCase(req, res, next) {
             console.log("sfid: " + user.sfid);
             console.log("userName: " + userName);
             console.log("password: " + password);
-            i// case is a reserved word. using _case instead.
+            // case is a reserved word. using _case instead.
             var _case = nforce.createSObject('Case');
             _case.set('contactId', user.sfid);
             _case.set('subject', req.body.subject);
