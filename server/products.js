@@ -3,7 +3,7 @@ var db = require('./pghelper'),
     winston = require('winston');
 
 function findAll(productId) {
-    return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE family=$1 ORDER BY publishDate DESC', [productId]);
+    return db.query('SELECT id, name, family, description, image__c AS image, productPage__c AS productPage, publishDate__c AS publishDate FROM salesforce.product2 WHERE family=$1 and name!=$1 ORDER BY publishDate DESC', [productId]);
 };
 
 function findById(productId) {
