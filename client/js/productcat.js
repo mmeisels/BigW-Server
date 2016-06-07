@@ -59,10 +59,9 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
 
     .controller('ProductListCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
 
-                  Product.get($stateParams.productId).success(function(product) {
-                      console.log("this is list 1: ");
-                  $scope.product = product;
-                };
+      Product.get($stateParams.productId).success(function(product) {
+      $scope.product = product;
+  });
 
         /**
         Original One
@@ -70,6 +69,7 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
             Product.get($stateParams.productId).success(function(product) {
             $scope.product = product;
         });
+
         **/
 
         /**
