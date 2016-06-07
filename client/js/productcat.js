@@ -14,7 +14,7 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
                 }
             })
 
-            .state('app.product', {
+            .state('app.productcatList', {
                 url: "/productscat/:productId",
                 views: {
                     'menuContent' :{
