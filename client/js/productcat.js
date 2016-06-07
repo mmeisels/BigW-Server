@@ -55,8 +55,8 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
     })
 
     .controller('ProductListCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
-        Product.get(product.id).success(function() {
-              $scope.product = product;
+        Product.get($stateParams.productId).success(function(product) {
+        $scope.product = product;
         });
 
         /**
@@ -64,7 +64,8 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
 
             Product.get($stateParams.productId).success(function(product) {
             $scope.product = product;
-        });**/
+        });
+        **/
 
         /**
           One to try out
