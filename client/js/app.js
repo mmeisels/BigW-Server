@@ -8,7 +8,7 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.galler
 
         $rootScope.user = user;
         //console.log($rootScope.user);
-        console.log('firstname of connected user : ' + $rootScope.user.externalUserId);
+        //console.log('firstname of connected user : ' + $rootScope.user.externalUserId);
         //console.log('points of connected user : ' + $rootScope.user.points);
 
         $rootScope.server = {

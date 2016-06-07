@@ -11,6 +11,8 @@ function findById(id) {
 };
 
 function getAll(req, res, next) {
+  var externalUserId = req.externalUserId;
+  console.log('External ID' + externalUserId);
     findAll(20)
         .then(function (offers) {
             console.log(JSON.stringify(offers));
