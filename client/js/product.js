@@ -15,7 +15,7 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
             })
 
             .state('app.product-detail', {
-                url: "/products/:productId",
+                url: "/products/:itemId",
                 views: {
                     'menuContent' :{
                         templateUrl: "templates/product-detail.html",
@@ -33,9 +33,9 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
                 console.log("this is all product js: ",productId);
                 return $http.get($rootScope.server.url + '/products/' + productId);
             },
-            get: function(productId) {
-                console.log("this is get product js : ",productId);
-                return $http.get($rootScope.server.url + '/products/' + productId);
+            get: function(itemId) {
+                console.log("this is get product js : ",itemId);
+                return $http.get($rootScope.server.url + '/products/' + itemId);
             }
         };
     })
@@ -59,7 +59,7 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
 
     .controller('ProductDetailCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
 
-        Product.get($stateParams.productId).success(function(product) {
+        Product.get($stateParams.itemId).success(function(product) {
             console.log("detail here");
             $scope.product = product;
         });

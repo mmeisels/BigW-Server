@@ -10,9 +10,8 @@
                 pulling-text="Pull to refresh..."
                 on-refresh="doRefresh()">
         </ion-refresher>
-  <h2>{{products}}</h2>
         <div ng-repeat="productlist in products" class="list card">
-            <a ui-sref="app.product-detail({productId: productlist.id})">
+            <a ui-sref="app.product-detail({itemId: productlist.id})">
                 <div class="item">
                     <h2>{{productlist.name}}</h2>
                     <p>Available today!</p>
