@@ -44,9 +44,9 @@ angular.module('nibs_ibeacon.profile', ['nibs_ibeacon.s3uploader', 'nibs_ibeacon
     .factory('Preference', function() {
 
         var preferences = [
-            { text: 'Dark', value: 'Dark' },
-            { text: 'Milk', value: 'Milk' },
-            { text: 'White', value: 'White' }
+            { text: 'Boys', value: 'Boys' },
+            { text: 'Girls', value: 'Girls' },
+            { text: 'Unisex', value: 'Unisex' }
         ];
 
         return {
@@ -59,10 +59,11 @@ angular.module('nibs_ibeacon.profile', ['nibs_ibeacon.s3uploader', 'nibs_ibeacon
     .factory('Size', function() {
 
         var sizes = [
-            { text: 'Small', value: 'Small' },
-            { text: 'Medium', value: 'Medium' },
-            { text: 'Large', value: 'Large' },
-            { text: 'X-Large', value: 'X-Large' }
+            { text: 'Home', value: 'Home' },
+            { text: 'Kitchen', value: 'Kitchen' },
+            { text: 'Garden', value: 'Garden' },
+            { text: 'Bathroom', value: 'Bathroom' },
+            { text: 'Bedroom', value: 'Bedroom' }
         ];
 
         return {
