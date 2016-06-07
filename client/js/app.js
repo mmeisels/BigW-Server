@@ -4,7 +4,7 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.galler
          console.log('hi');
         var user = JSON.parse($window.localStorage.getItem('user'));
 
-        //console.log(user);
+        console.log(user);
 
         $rootScope.user = user;
         //console.log($rootScope.user);
