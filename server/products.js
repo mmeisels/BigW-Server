@@ -15,7 +15,8 @@ function findByFamily(productId) {
 };
 
 function getAll(req, res, next) {
-    findAll(20)
+  var id = req.params.id;
+  findAll(id)
         .then(function (products) {
             return res.send(JSON.stringify(products));
         })
