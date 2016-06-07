@@ -30,9 +30,11 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
     .factory('Product', function ($http, $rootScope) {
         return {
             all: function(productId) {
+                console.log("this is all product: ",productId);
                 return $http.get($rootScope.server.url + '/products/' + productId);
             },
             get: function(productId) {
+                console.log("this is get product : ",productId);
                 return $http.get($rootScope.server.url + '/products/' + productId);
             }
         };
