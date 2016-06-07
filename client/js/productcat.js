@@ -14,7 +14,7 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
                 }
             })
 
-            .state('app.productcatList', {
+            .state('app.productscatlist', {
                 url: "/productscat/:productId",
                 views: {
                     'menuContent' :{
@@ -27,7 +27,7 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
     })
 
     // REST resource for access to Products data
-    .factory('Product', function ($http, $rootScope) {
+    .factory('Productcat', function ($http, $rootScope) {
         return {
             all: function() {
                 return $http.get($rootScope.server.url + '/productscat');
@@ -39,15 +39,15 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
         };
     })
 
-    .controller('ProductCatCtrl', function ($scope, Product, OpenFB) {
+    .controller('ProductCatCtrl', function ($scope, Productcat, OpenFB) {
 
-        Product.all().success(function(products) {
-            $scope.products = products;
+        Productcat.all().success(function(productscat) {
+            $scope.productscat = productscat;
         });
 
         $scope.doRefresh = function() {
-            Product.all().success(function(products) {
-                $scope.products = products;
+            Productcat.all().success(function(productscat) {
+                $scope.productscat = productscat;
                 $scope.$broadcast('scroll.refreshComplete');
             });
         }
@@ -55,8 +55,8 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
     })
 
     .controller('ProductListCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
-        Product.get($stateParams.productId).success(function(product) {
-        $scope.product = product;
+        Productcat.get(product.id).success(function() {
+              $scope.productcat = productcat;
         });
 
         /**
@@ -64,8 +64,7 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
 
             Product.get($stateParams.productId).success(function(product) {
             $scope.product = product;
-        });
-        **/
+        });**/
 
         /**
           One to try out
@@ -77,38 +76,6 @@ angular.module('nibs_ibeacon.productcat', ['openfb', 'nibs_ibeacon.status', 'nib
         };
         **/
 
-        $scope.shareOnFacebook = function () {
-            Status.show('Shared on Facebook!');
-            Activity.create({type: "Shared on Facebook", points: 1000, productId: $scope.product.sfid, name: $scope.product.name, image: $scope.product.image})
-                .success(function(status) {
-                    Status.checkStatus(status);
-                });
-        };
 
-        $scope.shareOnTwitter = function () {
-            Status.show('Shared on Twitter!');
-            Activity.create({type: "Shared on Twitter", points: 1000, productId: $scope.product.sfid, name: $scope.product.name, image: $scope.product.image})
-                .success(function(status) {
-                    Status.checkStatus(status);
-                });
-        };
-
-        $scope.shareOnGoogle = function () {
-            Status.show('Shared on Google+!');
-            Activity.create({type: "Shared on Google+", points: 1000, productId: $scope.product.sfid, name: $scope.product.name, image: $scope.product.image})
-                .success(function(status) {
-                    Status.checkStatus(status);
-                });
-        };
-
-        $scope.saveToWishList = function () {
-            WishListItem.create({productId: $scope.product.id}).success(function(status) {
-                Status.show('Added to your wish list!');
-                Activity.create({type: "Added to Wish List", points: 1000, productId: $scope.product.sfid, name: $scope.product.name, image: $scope.product.image})
-                    .success(function(status) {
-                        Status.checkStatus(status);
-                    });
-            });
-        };
 
     });

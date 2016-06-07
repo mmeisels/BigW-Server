@@ -11,15 +11,15 @@
                 on-refresh="doRefresh()">
         </ion-refresher>
 
-        <div ng-repeat="product in products" class="list card">
+        <div ng-repeat="productcat in productscat" class="list card">
             <!--<a ng-click="getItem(product)">-->
-              <a ui-sref="app.productcatList(product)">
+              <a ui-sref="app.productscatlist(productcat)">
                 <div class="item">
-                  <h2><center>{{product.id}}</center></h2>
-                    <h2><center>{{product.name}}</center></h2>
+                  <h2><center>{{productcat.id}}</center></h2>
+                    <h2><center>{{productcat.name}}</center></h2>
                 </div>
                 <div class="item item-body">
-                    <img ng-if="product.image"  ng-src="{{product.image}}">
+                    <img ng-if="productcat.image"  ng-src="{{productcat.image}}">
                 </div>
             </a>
         </div>
