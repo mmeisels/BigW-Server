@@ -25,8 +25,8 @@ function getAll(req, res, next) {
 function getById(req, res, next) {
     var id = req.params.id;
     findById(id)
-        .then(function (product) {
-            return res.send(JSON.stringify(product));
+        .then(function (products) {
+            return res.send(JSON.stringify(products));
         })
         .catch(next);
 };
