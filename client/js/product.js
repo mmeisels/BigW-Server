@@ -60,6 +60,7 @@ angular.module('nibs_ibeacon.product', ['openfb', 'nibs_ibeacon.status', 'nibs_i
     .controller('ProductDetailCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
 
         Product.get($stateParams.productId).success(function(product) {
+            console.log("detail here");
             $scope.product = product;
         });
 
