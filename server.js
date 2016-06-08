@@ -59,7 +59,6 @@ app.put('/users/me', auth.validateToken, users.updateProfile);
 app.get('/offers', auth.validateToken, offers.getAll);
 app.get('/offers/:id', offers.getById);
 
-app.get('/oauthcallback');
 
 app.get('/productscat', auth.validateToken, productscat.getAll);
 app.get('/productscat/:id', auth.validateToken, productscat.getById);

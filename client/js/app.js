@@ -161,7 +161,6 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.galler
                     }
                 }
             })
-
             .state('app', {
                 url: "/app",
                 abstract: true,
@@ -172,7 +171,6 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.galler
               url: '/oauthcallback',
               templateUrl: 'templates/oauthcallback.html'
             });
-
     })
 
     // XMLHTTPRequest Interceptor.
