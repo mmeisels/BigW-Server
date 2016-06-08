@@ -27,10 +27,6 @@ var express = require('express'),
 
 app.use(cors());
 
-app.set('view engine', 'html');
-app.use(express.static(__dirname + '/client'));
-
-
 app.set('port', process.env.PORT || 5000);
 
 app.use(compression());
@@ -53,9 +49,9 @@ app.get('/', function(req, res) {
 });
 
 app.get('/oauthcallback', function(req, res) {
-  console.log("Call Oauth");
-	res.render('/oauthcallback', {});
+	res.render('oauthcallback', {});
 });
+
 
 app.post('/login', auth.login);
 app.post('/logout', auth.validateToken, auth.logout);
