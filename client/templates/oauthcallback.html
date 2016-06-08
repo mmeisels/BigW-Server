@@ -1,7 +1,7 @@
-<!DOCTYPE HTML>
-<html>
+<ion-view title="Login" >
+	<ion-content>
 	<script>
-	    console.warn("oauthcallback.html");
+	    console.log("oauthcallback.html");
 		if (window.opener.force && window.opener.force.oauthCallback) {
 			window.opener.force.oauthCallback(window.location.href);
 		} else if (window.opener.oauthCallback) {
@@ -9,4 +9,5 @@
 		}
 		window.close();
 	</script>
-</html>
+</ion-content>
+</ion-view>
