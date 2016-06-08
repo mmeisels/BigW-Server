@@ -48,8 +48,8 @@ app.get('/', function(req, res) {
   console.log("App ID " + process.env.APPID);
 });
 
-app.get('/oauthcallback', function(req, res) {
-  res.render('oauthcallback');
+app.all("/oauthcallback", function(req, res, next) {
+        res.sendfile("oauthcallback.html", express.static(path.join(__dirname, './client')));
 });
 
 app.post('/login', auth.login);
