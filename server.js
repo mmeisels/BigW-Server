@@ -29,6 +29,9 @@ app.use(cors());
 
 app.set('port', process.env.PORT || 5000);
 
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 app.use(compression());
 app.use(bodyParser({
     uploadDir: __dirname + '/uploads',
