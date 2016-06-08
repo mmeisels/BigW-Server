@@ -222,8 +222,8 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.galler
     }
 
     function forceInit() {
-	force.init(config);
-};
+	     force.init(config);
+     };
 
     function handleOpenURL(url) {
         console.log('url', url);
