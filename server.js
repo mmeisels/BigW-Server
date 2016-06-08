@@ -44,7 +44,8 @@ app.use(function (err, req, res, next) {
 });
 
 app.get('/', function(req, res) {
-	res.render('index', {appId: process.env.APPID, loApp: process.env.LOAPP});
+	res.render('welcome', {appId: process.env.APPID, loApp: process.env.LOAPP});
+  console.log("App ID " + process.env.APPID);
 });
 
 app.get('/oauthcallback', function(req, res) {
