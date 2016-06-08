@@ -48,11 +48,6 @@ app.get('/', function(req, res) {
   console.log("App ID " + process.env.APPID);
 });
 
-app.get('/oauthcallback', function(req, res) {
-	res.render('/oauthcallback', {});
-});
-
-
 app.post('/login', auth.login);
 app.post('/logout', auth.validateToken, auth.logout);
 app.post('/signup', auth.signup);
