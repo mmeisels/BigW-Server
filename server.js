@@ -6,6 +6,7 @@ var express = require('express'),
     path = require('path'),
     winston = require('winston'),
     sqlinit = require('./server/sqlinit'),
+    hbs = require('express-handlebars');
 
 // App modules
     offers = require('./server/offers'),
@@ -46,6 +47,10 @@ app.use(function (err, req, res, next) {
 app.get('/', function(req, res) {
 	res.render('index', {appId: process.env.APPID, loApp: process.env.LOAPP});
   console.log("App ID " + process.env.APPID);
+});
+
+app.get('/oauthcallback', function(req, res) {
+  res.render('oauthcallback');
 });
 
 app.post('/login', auth.login);
