@@ -1,5 +1,4 @@
-angular.module('nibs_ibeacon.oauthcallback', [])
-
+angular.module('nibs_ibeacon.oauthcallback', ['openfb'])
     // Routes
     .config(function ($stateProvider) {
 
@@ -9,14 +8,8 @@ angular.module('nibs_ibeacon.oauthcallback', [])
                 url: "/oauthcallback",
                 views: {
                     'menuContent' :{
-                        templateUrl: "templates/oauthcallback.html",
-                        controller: "oauthcallbackCtrl"
+                        templateUrl: "templates/oauthcallback.html"
                     }
                 }
             })
-
     })
-    // Controllers
-    .controller('oauthcallbackCtrl', function () {
-
-    });

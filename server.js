@@ -29,10 +29,6 @@ app.use(cors());
 
 app.set('port', process.env.PORT || 5000);
 
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-app.set('views','./client/');
-
 app.use(compression());
 app.use(bodyParser({
     uploadDir: __dirname + '/uploads',
@@ -52,9 +48,6 @@ app.get('/', function(req, res) {
   console.log("App ID " + process.env.APPID);
 });
 
-app.all("/oauthcallback", function(req, res, next) {
-      res.render('oauthcallback', {});
-});
 
 app.post('/login', auth.login);
 app.post('/logout', auth.validateToken, auth.logout);
