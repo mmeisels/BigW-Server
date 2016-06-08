@@ -43,6 +43,14 @@ app.use(function (err, req, res, next) {
     res.send(500, err.message);
 });
 
+app.get('/', function(req, res) {
+	res.render('index', {appId: process.env.APPID, loApp: process.env.LOAPP});
+});
+
+app.get('/oauthcallback', function(req, res) {
+	res.render('oauthcallback', {});
+});
+
 app.post('/login', auth.login);
 app.post('/logout', auth.validateToken, auth.logout);
 app.post('/signup', auth.signup);

@@ -20,6 +20,7 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.galler
 
         $ionicPlatform.ready(function () {
             if (window.StatusBar) {
+                            setupLightning();
                              console.log('1:');
                 StatusBar.styleLightContent();
                              var logToDom = function (message) {
@@ -220,3 +221,30 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.galler
         console.log('result', result);
         window.location.href = result;
     }
+
+    function setupLightning(callback) {
+	var appName = config.loApp;
+	var oauth = force.getOauth();
+    if (!oauth) {
+        alert("Please login to Salesforce.com first!");
+        return;
+    }
+
+	if (_lightningReady) {
+		if (typeof callback === "function") {
+			callback();
+		}
+	} else {
+	    // Transform the URL for Lightning
+	    var url = oauth.instanceUrl.replace("bigwdemo.salesforce", "lightning.force");
+
+	    $Lightning.use(appName,
+	        function() {
+				_lightningReady = true;
+				document.getElementById("chatterFeedButton").style.display = "";
+				if (typeof callback === "function") {
+					callback();
+				}
+	        }, url, oauth.access_token);
+	}
+}
