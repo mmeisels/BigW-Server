@@ -213,6 +213,14 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.galler
         $httpProvider.interceptors.push('AuthInterceptor');
     });
 
+    function forceLogin(key) {
+    	forceInit();
+    	force.login(function(success) {
+    		var oauth = force.getOauth();
+    		setupLightning();
+    	});
+    }
+    
     function handleOpenURL(url) {
         console.log('url', url);
         //window.location.href = '#/app/offers/qrcode';
