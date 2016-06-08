@@ -14,7 +14,7 @@
 <ion-nav-view id="main"></ion-nav-view>
 
 <i class="icon ion-loading-c hourglass" ng-show="loading"></i>
-
+<script src="https://bigwdemo.my.salesforce.com/lightning/lightning.out.js"></script>
 <script src="cordova.js"></script>
 <script src="lib/js/ionic.bundle.js"></script>
 <script src="lib/js/angular/angular-sanitize.min.js"></script>
@@ -38,7 +38,18 @@
 <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
 <script src="js/gallery.js"></script>
 
-
+<script>
+        $Lightning.use("c:LightningChatterFeed", function() {
+            $Lightning.createComponent(
+                "c:LightningChatterFeed",
+                {},
+                "feed",
+                function(cmp) {
+                    console.log("Component created!");
+                    console.log(cmp);
+                });
+            });
+    </script>
 
 </body>
 </html>
