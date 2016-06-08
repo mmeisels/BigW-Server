@@ -50,7 +50,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/oauthcallback', function(req, res) {
-	res.render('/oauthcallback', {});
+  console.log("Call Oauth");
+	res.render('oauthcallback', {});
 });
 
 app.post('/login', auth.login);
