@@ -27,6 +27,10 @@ var express = require('express'),
 
 app.use(cors());
 
+app.set('view engine', 'html');
+app.use(express.static(__dirname + '/client'));
+
+
 app.set('port', process.env.PORT || 5000);
 
 app.use(compression());
