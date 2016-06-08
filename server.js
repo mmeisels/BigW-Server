@@ -49,7 +49,7 @@ app.get('/', function(req, res) {
 });
 
 app.all("/oauthcallback", function(req, res, next) {
-        res.sendfile("oauthcallback.html", express.static(path.join(__dirname, './client')));
+      res.render('oauthcallback', {});
 });
 
 app.post('/login', auth.login);
