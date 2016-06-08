@@ -31,7 +31,6 @@ app.set('port', process.env.PORT || 5000);
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('views', __dirname + '/');
 
 app.use(compression());
 app.use(bodyParser({
