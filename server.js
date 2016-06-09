@@ -26,7 +26,7 @@ var express = require('express'),
 
     app = express();
 
-app.use(cors());
+app.use(cors({origin: 'https://bwsloyalty.herokuapp.com'}));
 
 app.set('port', process.env.PORT || 5000);
 
