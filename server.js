@@ -44,7 +44,7 @@ var express = require('express'),
         /**
          * Headers
          */
-        res.header("Access-Control-Allow-Credentials", responseSettings.AccessControlAllowCredentials);
+        //res.header("Access-Control-Allow-Credentials", responseSettings.AccessControlAllowCredentials);
         res.header("Access-Control-Allow-Origin",  responseSettings.AccessControlAllowOrigin);
         res.header("Access-Control-Allow-Headers", (req.headers['access-control-request-headers']) ? req.headers['access-control-request-headers'] : "x-requested-with");
         res.header("Access-Control-Allow-Methods", (req.headers['access-control-request-method']) ? req.headers['access-control-request-method'] : responseSettings.AccessControlAllowMethods);
