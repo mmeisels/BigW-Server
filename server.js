@@ -27,38 +27,8 @@ var express = require('express'),
     /**
      * On all requests add headers
      */
-    app.all('*', function(req, res,next) {
 
-        /**
-         * Response settings
-         * @type {Object}
-         */
-        var responseSettings = {
-            "AccessControlAllowOrigin": true,
-            "AccessControlAllowHeaders": "Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
-            "AccessControlAllowMethods": "GET",
-            "AccessControlAllowCredentials": true
-        };
-
-        /**
-         * Headers
-         */
-        res.header("Access-Control-Allow-Credentials", responseSettings.AccessControlAllowCredentials);
-        res.header("Access-Control-Allow-Origin",  responseSettings.AccessControlAllowOrigin);
-        res.header("Access-Control-Allow-Headers", (req.headers['access-control-request-headers']) ? req.headers['access-control-request-headers'] : "x-requested-with");
-        res.header("Access-Control-Allow-Methods", (req.headers['access-control-request-method']) ? req.headers['access-control-request-method'] : responseSettings.AccessControlAllowMethods);
-
-        if ('OPTIONS' == req.method) {
-            res.send(200);
-        }
-        else {
-            next();
-        }
-
-
-    });
-
-app.use(cors());
+//app.use(cors());
 
 app.set('port', process.env.PORT || 5000);
 
@@ -77,7 +47,6 @@ app.use(function (err, req, res, next) {
 });
 
 app.get('/', function(req, res) {
-  res.header("Access-Control-Allow-Origin", "*");
   res.render('index', {appId: process.env.APPID, loApp: process.env.LOAPP});
   console.log("App ID " + process.env.APPID);
 });
