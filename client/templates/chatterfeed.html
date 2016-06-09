@@ -1,5 +1,6 @@
 <ion-view title="Chatter Feed" class="chatterfeed">
 
+  <ion-content padding="false" scroll="false">
   <div class="container">
         <div class="jumbotron">
           <button class="btn btn-primary btn-lg" onclick="forceLogin()">
@@ -7,9 +8,11 @@
           </button>
           <button id="chatterFeedButton" class="btn btn-primary btn-lg"
               onclick="createChatterFeed('NEWS')" style="display: none">
-          Show My Membership Card
+          Show My Chatter Feed
           </button>
         </div>
-        <div id="memberShipCard"/>
+        <div id="chatterfeed"/>
       </div>
+    </ion-content>
+
 </ion-view>
