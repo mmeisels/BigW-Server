@@ -251,6 +251,7 @@ var _lightningReady = false;
 	    //var url = oauth.instanceUrl.replace("bigwdemo.my.salesforce", "lightning.force");
       console.log ("oauth token " + oauth.access_token);
       console.log ("url  " + url);
+      console.log ("appName  " + appName);
 	    $Lightning.use(appName,
 	        function() {
 				_lightningReady = true;
