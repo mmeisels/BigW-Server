@@ -1,6 +1,13 @@
 <ion-view title="Chatter Feed" hide-back-button="false" class="chatterfeed">
 
-  <ion-content padding="false" scroll="true">
+  <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <!--<ion-nav-buttons side="right">-->
+      <!--<button class="button button-clear" ><i class="icon ion-ios7-camera"></i></button>-->
+  <!--</ion-nav-buttons>-->
+
+  <ion-content has-header="true"  style="background: black;">
   <div class="container">
         <div class="jumbotron">
           <button class="btn btn-primary btn-lg" onclick="forceLogin()">
