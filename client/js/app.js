@@ -229,6 +229,14 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
         });
     }
 
+        function createMemberCard(type, subjectId) {
+            setupLightning(function() {
+        		//$Lightning.createComponent("forceChatter:feed", {type: type, subjectId: subjectId}, "chatterFeed");
+            $Lightning.createComponent("c:DigitalMemberShip", "", "memberCard");
+            //$Lightning.createComponent("c:DigitalMemberShip", "", "chatterFeed");
+            });
+        }
+
     function forceInit() {
 	     force.init(config);
      };
