@@ -36,8 +36,8 @@ var express = require('express'),
          */
         var responseSettings = {
             "AccessControlAllowOrigin": 'bwsloyalty.herokuapp.com',
-            "AccessControlAllowHeaders": "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
-            "AccessControlAllowMethods": "POST, GET, PUT, DELETE, OPTIONS",
+            "AccessControlAllowHeaders": "Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
+            "AccessControlAllowMethods": "GET",
             "AccessControlAllowCredentials": true
         };
 
