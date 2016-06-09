@@ -248,7 +248,7 @@ var _lightningReady = false;
 		}
 	} else {
 	    // Transform the URL for Lightning
-	    //var url = oauth.instanceUrl.replace("bigwdemo.my.salesforce", "lightning.force");
+	    var url = oauth.instanceUrl.replace("my.salesforce", "lightning.force");
       console.log ("oauth token " + oauth.access_token);
       console.log ("url  " + url);
       console.log ("appName  " + appName);
