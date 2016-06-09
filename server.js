@@ -26,12 +26,13 @@ var express = require('express'),
 
     app = express();
 
-app.use(cors({origin: 'https://bwsloyalty.herokuapp.com'}));
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://bwsloyalty.herokuapp.com");
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
-  next();
+app.use(cors();
+app.all('*', function (req, res, next) {
+
+    // Set CORS headers: allow all origins, methods, and headers: you may want to lock this down in a production environment
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
+    res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers'));
 });
 
 app.set('port', process.env.PORT || 5000);
