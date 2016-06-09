@@ -223,7 +223,7 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
 
     function createChatterFeed(type, subjectId) {
         setupLightning(function() {
-    		$Lightning.createComponent("c:DigitalMemberShip", , "");
+    		$Lightning.createComponent("c:DigitalMemberShip","", "");
         });
     }
 
