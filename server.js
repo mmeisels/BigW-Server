@@ -34,7 +34,7 @@ var express = require('express'),
          * @type {Object}
          */
         var responseSettings = {
-            "AccessControlAllowOrigin": 'https://bwsloyalty.herokuapp.com',
+            "AccessControlAllowOrigin": 'https://bigwdemo.my.salesforce.com',
             "AccessControlAllowHeaders": "Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
             "AccessControlAllowMethods": "GET",
             "AccessControlAllowCredentials": true
