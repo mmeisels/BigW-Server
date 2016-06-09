@@ -28,9 +28,6 @@ var express = require('express'),
 
 app.use(cors());
 
-app.use(allowCrossDomain);
-
-
 app.set('port', process.env.PORT || 5000);
 
 app.use(compression());
