@@ -6,6 +6,7 @@ var express = require('express'),
     path = require('path'),
     winston = require('winston'),
     sqlinit = require('./server/sqlinit'),
+    cors = require('cors'),
 
 // App modules
     offers = require('./server/offers'),
@@ -22,13 +23,10 @@ var express = require('express'),
     facebook = require('./server/facebook'),
     s3signing = require('./server/s3signing'),
     activities = require('./server/activities'),
-    cors = require('cors'),
-    app = express();
-    /**
-     * On all requests add headers
-     */
 
-//app.use(cors());
+    app = express();
+
+app.use(cors());
 
 app.set('port', process.env.PORT || 5000);
 
