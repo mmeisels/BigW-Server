@@ -224,7 +224,7 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
     function forceInit() {
 	     force.init(config);
      };
-
+var _lightningReady = false;
     function handleOpenURL(url) {
         console.log('url', url);
         //window.location.href = '#/app/offers/qrcode';
