@@ -20,7 +20,7 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
 
         $ionicPlatform.ready(function () {
             if (window.StatusBar) {
-                            setupLightning();
+                            //setupLightning();
                              console.log('1:');
                 StatusBar.styleLightContent();
                              var logToDom = function (message) {
@@ -42,14 +42,17 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
                               **********************************************/
                              console.log('3:');
                              window.plugin.notification.local.cancelAll(function () {}, $rootScope);
+                             console.log('3a:');
 
                              window.plugin.notification.local.onclick = function (id, state, json) {
                                 var major = JSON.parse(json).type;
                                 if (major === 4522) {
-                                    window.location.href = '#/app/profile';
+                                  console.log('Beacon iPad:');
+                                  window.location.href = '#/app/profile';
 
-                                } else if (major === 1629) {
-                                    window.location.href = '#/app/offers';
+                                } else if (major === 45268) {
+                                  console.log('Beacon Mint:');
+                                  window.location.href = '#/app/offers';
                                 }
                              }
 
@@ -82,6 +85,23 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
                                                                   json:       JSON.stringify({ type: 1629 })
                                         });
                                     }
+
+                                    if (pluginResult.region.major === 45268) {
+                                        console.log('45268');
+                                        window.plugin.notification.local.add({ message: 'Welcome to our new store !',
+                                                                  badge           : 0,
+                                                                  id             : 1,
+                                                                  json:       JSON.stringify({ type: 1627 })
+                                                                  });
+                                    }
+                             if (pluginResult.region.major === 45268 && $rootScope.user != null) {
+                             console.log('45268-2');
+                             window.plugin.notification.local.add({ message: 'You\'ve got ' + $rootScope.user.points + ' points. Discover our special offers !',
+                                                                  badge           : 0,
+                                                                  id             : 1,
+                                                                  json:       JSON.stringify({ type: 1629 })
+                                                                  });
+                             }
                                 }
                                 else if(pluginResult.state === "CLRegionStateOutside"){
                                 //OUTSIDE REGION
@@ -97,8 +117,9 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
                              /***********************************************
                               *   BEACON CONFIGURATION
                               **********************************************/
+                             console.log('4a:');
 
-                             /* Beacon 1 - Bienvenue dans la chambre */
+                             /* Beacon 1  */
                              var uuid = '8492E75F-4FD6-469D-B132-043FE94921D8';
                              var identifier = 'iPad Beacon';
                              var minor = 0;
@@ -109,11 +130,11 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
                              .fail(console.error)
                              .done();
 
-                             /* Beacon 2 - Bienvenue dans l'hôtel */
-                             uuid = '8492E75F-4FD6-469D-B132-043FE94921D8';
-                             identifier = 'SmartBeacon_02316';
-                             minor = 0;
-                             major = 4522;
+                             /* Beacon 2 -  */
+                             uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
+                             identifier = 'Mint Cocktail';
+                             minor = 46007;
+                             major = 45268;
                              var beaconRegion2 = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor, true);
 
                              cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion2)
@@ -213,6 +234,12 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
         $httpProvider.interceptors.push('AuthInterceptor');
     });
 
+
+    /**
+
+      Add Code For Lightning Out - Lightining Components
+
+    **/
     function forceLogin(key) {
     	forceInit();
     	force.login(function(success) {
@@ -270,10 +297,12 @@ var _lightningReady = false;
       console.log ("appName  " + appName);
 	    $Lightning.use(appName,
 	        function() {
-				_lightningReady = true;
+				  console.log ("Lightning Ready  ");
+          _lightningReady = true;
 				document.getElementById("chatterFeedButton").style.display = "";
 				if (typeof callback === "function") {
-					callback();
+          console.log ("Callback Ready  ");
+      	   callback();
 				}
 	        }, url, oauth.access_token);
 	}

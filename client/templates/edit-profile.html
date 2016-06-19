@@ -38,16 +38,46 @@
                     <span class="input-label">Mobile Phone</span>
                     <input type="text" ng-model="user.mobilephone" />
                 </label>
-                <li class="item item-toggle">
-                    See Premium Offers
+                <br>
+                We respect your privacy. Please tell us if you would like us to:
+                <br>
+                 <li class="item item-toggle">
+                    SMS you
                     <label class="toggle">
-                        <input type="checkbox">
+                        <input type="checkbox" checked="user.smspref" ng-model="user.smspref">
                         <div class="track">
                             <div class="handle"></div>
                         </div>
                     </label>
                 </li>
-            </form>
+                 <li class="item item-toggle">
+                    Email you
+                    <label class="toggle">
+                        <input type="checkbox" ng-model="user.emailpref">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+                 <li class="item item-toggle">
+                    Send you premium offers
+                    <label class="toggle">
+                        <input type="checkbox" checked="user.marketingpref" ng-model="user.marketingpref">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+                <li class="item item-toggle">
+                    Send you in-store offers
+                    <label class="toggle">
+                        <input type="checkbox" ng-model="user.offerpref">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+                </form>
         </div>
 
         <div ng-if="panel===2">
