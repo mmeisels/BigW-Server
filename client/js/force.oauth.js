@@ -38,7 +38,7 @@ var force = (function () {
 
     // if page URL is http://localhost:3000/myapp/index.html, oauthRedirectURL is http://localhost:3000/myapp/oauthcallback.html
         oauthRedirectURL = baseURL + callbackUrl,
-
+        console.log("Oauth redirect = " + oauthRedirectURL);
     // Because the OAuth login spans multiple processes, we need to keep the login success and error handlers as a variables
     // inside the module instead of keeping them local within the login function.
         loginSuccessHandler,
@@ -63,6 +63,9 @@ var force = (function () {
      *  proxyURL (optional)
      */
     function init(params) {
+             
+             console.log ("Init Params ");
+
         if (params.appId) {
             appId = params.appId;
         }
@@ -75,6 +78,8 @@ var force = (function () {
         if (params.callbackUrl) {
             callbackUrl = params.callbackUrl;
             oauthRedirectURL = baseURL + callbackUrl;
+             console.log ("Redirect + " +oauthRedirectURL);
+             
         }
         if (params.accessToken) {
             oauth = {access_token: params.accessToken};
@@ -83,6 +88,7 @@ var force = (function () {
         }
         apiVersion = params.apiVersion || apiVersion;
         tokenStore = params.tokenStore || tokenStore;
+             console.log("Redirect 2 " + oauthRedirectURL);
         oauthRedirectURL = params.oauthRedirectURL || oauthRedirectURL;
         proxyURL = params.proxyURL || proxyURL;
 
@@ -112,7 +118,7 @@ var force = (function () {
         loginErrorHandler = error || loginErrorHandler;
 
         loginProcessed = true;
-
+             console.log('Here :');
         // Inappbrowser load start handler: Used when running in Cordova only
         function loginWindow_loadStartHandler(event) {
             var url = event.url;
@@ -146,6 +152,7 @@ var force = (function () {
         }
 
         startTime = new Date().getTime();
+              console.log('Redirect :' + oauthRedirectURL);
         loginWindow = window.open(loginUrl + '/services/oauth2/authorize?client_id=' + appId + '&redirect_uri=' + oauthRedirectURL +
             '&response_type=token', '_blank', 'location=no');
 

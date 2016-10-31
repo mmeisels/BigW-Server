@@ -1,7 +1,6 @@
 var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthcallback','nibs_ibeacon.membershipcard','nibs_ibeacon.wave','nibs_ibeacon.chatterfeed', 'nibs_ibeacon.gallery','nibs_ibeacon.productcat', 'nibs_ibeacon.config', 'nibs_ibeacon.profile', 'nibs_ibeacon.auth', 'nibs_ibeacon.product', 'nibs_ibeacon.offer', 'nibs_ibeacon.store-locator', 'nibs_ibeacon.settings', 'nibs_ibeacon.case'])
 
     .run(function ($window, $location, $rootScope, $state, $ionicPlatform, $http, OpenFB, FB_APP_ID, SERVER_URL) {
-         console.log('hi');
         var user = JSON.parse($window.localStorage.getItem('user'));
 
         console.log(user);
@@ -21,12 +20,10 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
         $ionicPlatform.ready(function () {
             if (window.StatusBar) {
                             //setupLightning();
-                             console.log('1:');
-                StatusBar.styleLightContent();
+                             StatusBar.styleLightContent();
                              var logToDom = function (message) {
                              var e = document.createElement('label');
                              e.innerText = message;
-                             console.log('2:');
                              var br = document.createElement('br');
                              var br2 = document.createElement('br');
                              document.body.appendChild(e);
@@ -40,9 +37,7 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
                              /***********************************************
                               *   NOTIFICATIONS
                               **********************************************/
-                             console.log('3:');
                              window.plugin.notification.local.cancelAll(function () {}, $rootScope);
-                             console.log('3a:');
 
                              window.plugin.notification.local.onclick = function (id, state, json) {
                                 var major = JSON.parse(json).type;
@@ -242,7 +237,7 @@ var app = angular.module('nibs_ibeacon', ['ionic', 'openfb','nibs_ibeacon.oauthc
     **/
     function forceLogin(key) {
     	forceInit();
-    	force.login(function(success) {
+        force.login(function(success) {
     		var oauth = force.getOauth();
     		setupLightning();
     	});
