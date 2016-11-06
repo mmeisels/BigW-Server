@@ -45,9 +45,9 @@ function createCase(req, res, next) {
             _case.set('origin', 'Web');
             _case.set('status', 'New');
 
-            org.insert({ sobject: _case}, function(err, resp){
-                if (err) {
-                    console.log('First case insert failed: ' + JSON.stringify(err));
+            //org.insert({ sobject: _case}, function(err, resp){
+            //    if (err) {
+                    //console.log('First case insert failed: ' + JSON.stringify(err));
                     org.authenticate({username: userName, password: password}, function(err) {
                         if (err) {
                             console.log('Authentication failed: ' + JSON.stringify(err));
@@ -65,13 +65,13 @@ function createCase(req, res, next) {
                             });
                         }
                     })
-                } else {
-                  console.log('*** Successfully connected to Salesforce ***');
+             //    } else {
+             //      console.log('*** Successfully connected to Salesforce ***');
 
-                    console.log('First case insert worked');
-                    res.send('ok');
-                }
-            });
+             //        console.log('First case insert worked');
+             //        res.send('ok');
+             // //   }
+            //});
         })
         .catch(next);
 };
