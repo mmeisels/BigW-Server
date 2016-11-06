@@ -76,6 +76,7 @@ function deleteItems(userId) {
     db.query("DELETE FROM salesforce.interaction__c WHERE Contact__LoyaltyId__c=$1", [userId]);
     db.query("update salesforce.contact set size__c ='',emailpref__c =false,smspref__c =false,offerpref__c =false,marketingpref__c =false, preference__c=false WHERE loyaltyid__c=$1", [userId]);
     db.query("DELETE FROM wishlist WHERE userid in (Select id from salesforce.contact WHERE loyaltyid__c=$1)", [userId]);
+    db.query("delete from salesforce.contact WHERE loyaltyid__c=$1", [userId]);
     //tempId = db.query("Select id from salesforce.contact WHERE loyaltyid__c=$1", [userId]);
     return 0;
 }
