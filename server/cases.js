@@ -6,6 +6,7 @@ var db = require('./pghelper'),
     password = config.api.password;
 
     org = nforce.createConnection({
+        instance_url: config.api.instance_url,
         clientId: config.api.clientId,
         clientSecret: config.api.clientSecret,
         redirectUri: config.api.redirectUri,
@@ -33,7 +34,7 @@ function createCase(req, res, next) {
   });
     db.query('SELECT sfid FROM salesforce.contact WHERE id=$1',[req.userId], true)
         .then(function (user) {
-            console.log("sfid: " + user.sfid);
+            console.log("sfid: 1" + user.sfid);
             console.log("userName: " + userName);
             console.log("password: " + password);
             // case is a reserved word. using _case instead.
