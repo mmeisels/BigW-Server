@@ -20,7 +20,7 @@ org.authenticate({ username: userName, password: password}, function(err, resp) 
   if (!err) {
         console.log('nforce connection succeeded');
     } else {
-        console.log('nforce connection failed: ' + err.message);
+        console.log('nforce connection 1 failed: ' + err.message);
     }
 });
 
